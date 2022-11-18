@@ -11,8 +11,9 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
         if(CookieService.getCookie(request,"usuarioId") != null){
             return true;
-        }
+        }else{
         response.sendRedirect("/login");
         return false;
+        }
     }
 }

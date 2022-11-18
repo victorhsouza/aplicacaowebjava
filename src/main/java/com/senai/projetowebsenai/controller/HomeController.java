@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 public class HomeController {
 
     @GetMapping
-    public String index(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+    public String index(Model model, HttpServletRequest request)  {
         model.addAttribute("nome", CookieService.getCookie(request, "nome" ));
         return "home/index";
     }

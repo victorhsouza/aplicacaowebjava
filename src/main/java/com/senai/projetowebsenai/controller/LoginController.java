@@ -37,13 +37,13 @@ public class LoginController {
 
 
     @GetMapping(value ="/sair")
-    public String sair(HttpServletResponse response) throws UnsupportedEncodingException {
+    public String sair(HttpServletResponse response)  {
         CookieService.setCookie(response, "usuarioId", "", 0);
         return "redirect:/login";
     }
 
     @PostMapping(value = "/logar")
-    public String entrar(UserModel userModel, Model model, String lembrar, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String entrar(UserModel userModel, Model model, String lembrar, HttpServletResponse response){
         UserModel user = loginService.logar(userModel);
         int tempoCookie;
         if(user != null){
