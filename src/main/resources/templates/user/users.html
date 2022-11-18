@@ -1,0 +1,49 @@
+<div th:replace="shared/header" xmlns:th="http://www.w3.org/1999/xhtml"> </div>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
+                    <p class="mb-4">Esta é a lista de usuários cadastrados no Banco de dados</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex justify-content-between">
+                            <h4 class="m-0 font-weight-bold text-primary">Lista de usuarios: </h4>
+                            <a href="/user/novo" class="btn btn-primary"> Novo usuario </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Endereço</th>
+                                            <th>Email</th>
+                                            <th>Observacao</th>
+                                            <th>-</th>
+                                            <th>-</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="user:${users}" xmlns:th="http://www.w3.org/1999/xhtml">
+                                            <td th:text="${user.id}"></td>
+                                            <td th:text="${user.nome}"></td>
+                                            <td th:text="${user.endereco}"></td>
+                                            <td th:text="${user.email}"></td>
+                                            <td th:text="${user.observacao}"></td>
+                                            <td> <a th:href="@{'/user/' + ${user.id}}"  class="btn btn-warning">Alterar</a> </td>
+                                            <td> <button class="btn btn-danger" th:onclick="' if(confirm(\'Tem certeza que deseja excluir?\')){ window.location.href = \'' + @{/user/excluir/{id}(id=${user.id})} + '\'}'" >Excluir</button> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+
+<div th:replace="shared/footer" xmlns:th="http://www.w3.org/1999/xhtml"> </div>

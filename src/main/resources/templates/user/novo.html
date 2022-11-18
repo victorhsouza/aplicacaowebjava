@@ -1,0 +1,46 @@
+<div th:replace="shared/header" xmlns:th="http://www.w3.org/1999/xhtml"> </div>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
+                    <p class="mb-4">Este é o formulário de cadastro</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex justify-content-between">
+                            <h4 class="m-0 font-weight-bold text-primary">Cadastro de Usuario </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class=" container">
+                                <form class="row g-3" action="/user/cadastrar" method="post" onsubmit="alert('Cadastrado com sucesso!')">
+                                    <div class="col-md-6">
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <input type="text" name="nome" class="form-control" id="nome">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputEmail" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="inputEmail">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Endereço</label>
+                                        <input type="text" name="endereco" class="form-control" id="inputAddress" placeholder="Endereço Completo">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress2" class="form-label">Fale sobre voce</label>
+                                        <textarea class="form-control" name="observacao" id="inputAddress2" placeholder="Fale um pouco sobre voce..."></textarea>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+
+<div th:replace="shared/footer" xmlns:th="http://www.w3.org/1999/xhtml"> </div>

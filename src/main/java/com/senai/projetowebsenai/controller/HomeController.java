@@ -1,0 +1,22 @@
+package com.senai.projetowebsenai.controller;
+
+import com.senai.projetowebsenai.service.CookieService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+
+
+@Controller
+@RequestMapping(value = "/")
+public class HomeController {
+
+    @GetMapping
+    public String index(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("nome", CookieService.getCookie(request, "nome" ));
+        return "home/index";
+    }
+}
