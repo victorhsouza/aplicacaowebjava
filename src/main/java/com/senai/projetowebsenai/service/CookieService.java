@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -13,7 +14,7 @@ public class CookieService {
 
     // Thrws - Tem relaçao com tratamento de excçoes
     public static void setCookie(HttpServletResponse response , String key, String valor, int segundos) throws UnsupportedEncodingException {
-        Cookie cookie = new Cookie(key, URLEncoder.encode(valor, "UTF-8"));
+        Cookie cookie = new Cookie(key, URLEncoder.encode(valor, StandardCharsets.UTF_8));
         cookie.setMaxAge(segundos);
         response.addCookie(cookie);
     }
@@ -28,7 +29,8 @@ public class CookieService {
                 .map(Cookie::getValue)
                 .orElse(null);
 
-        valor = URLDecoder.decode(valor, "UTF-8");
+        assert valor != null;
+        valor = URLDecoder.decode(valor, StandardCharsets.UTF_8);
         return valor;
     }
 }
