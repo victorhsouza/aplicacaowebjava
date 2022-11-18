@@ -26,6 +26,10 @@
                                         <input type="text" name="endereco" th:value="${user.endereco}" class="form-control" id="inputAddress" placeholder="Endereço Completo">
                                     </div>
                                     <div class="col-12">
+                                        <label for="inputSenha" class="form-label">Senha</label>
+                                        <input type="password" name="senha" th:value="${user.senha}" class="form-control" id="inputSenha">
+                                    </div>
+                                    <div class="col-12">
                                         <label for="inputAddress2" class="form-label">Fale sobre voce</label>
                                         <textarea class="form-control" th:text="${user.observacao}" name="observacao" id="inputAddress2" placeholder="Fale um pouco sobre voce..."></textarea>
                                     </div>
